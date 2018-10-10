@@ -1,16 +1,10 @@
-package com.mealplanner.controller;
+package com.mealplanner.app.controller;
 
-
-import com.mealplanner.model.User;
-import com.mealplanner.repository.UserRepository;
-
+import com.mealplanner.app.model.User;
+import com.mealplanner.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -38,5 +32,4 @@ public class UserController {
     public void delete(@PathVariable String id) {
         userRepository.deleteById(id);
     }
-
 }

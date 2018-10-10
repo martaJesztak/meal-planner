@@ -1,6 +1,7 @@
-package com.mealplanner.model;
+package com.mealplanner.app.model;
 
 import org.springframework.data.annotation.Id;
+
 
 public class User {
     @Id
@@ -8,6 +9,8 @@ public class User {
     private String name;
     private int age;
     private String email;
+
+    public User(){;}
 
     public String getId() {
         return id;
