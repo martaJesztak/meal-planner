@@ -2,13 +2,13 @@ package com.mealplanner.app.model;
 
 public class MealPlan {
 
-    int id;
+    private int id;
 
-    int userId;
+    private int userId;
 
-    int nrOfDays;
+    private int nrOfDays;
 
-    DietLabel[] dietPreferences;
+    private DietLabel[] dietPreferences;
 
     public MealPlan() {}
 
