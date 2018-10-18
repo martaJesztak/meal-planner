@@ -10,6 +10,8 @@ public class MealPlan {
 
     private DietLabel[] dietPreferences;
 
+    private Recipe[] recipes;
+
     public MealPlan() {}
 
     public MealPlan(int userId) {
@@ -47,4 +49,14 @@ public class MealPlan {
     public void setDietPreferences(DietLabel[] dietPreferences) {
         this.dietPreferences = dietPreferences;
     }
+
+    public Recipe[] getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Recipe[] recipes) {
+        this.recipes = recipes;
+    }
+
+
 }
