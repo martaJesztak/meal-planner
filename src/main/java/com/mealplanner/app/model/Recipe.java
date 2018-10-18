@@ -2,14 +2,14 @@ package com.mealplanner.app.model;
 
 public class Recipe {
 
-    int id;
-    String title;
-    String[] ingredients;
-    String instructions;
-    DietLabel[] dietlabels;
-    HealthLabel[] healthLabels;
+    private String id;
+    private String title;
+    private String[] ingredients;
+    private String instructions;
+    private DietLabel[] dietlabels;
+    private HealthLabel[] healthLabels;
 
-    public Recipe(int id, String title, String[] ingredients, String instructions, DietLabel[] dietlabels, HealthLabel[] healthLabels) {
+    public Recipe(String id, String title, String[] ingredients, String instructions, DietLabel[] dietlabels, HealthLabel[] healthLabels) {
         this.id = id;
         this.title = title;
         this.ingredients = ingredients;
@@ -21,7 +21,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
