@@ -1,7 +1,6 @@
 package com.mealplanner.app.controller;
 
 import com.mealplanner.app.model.Recipe;
-import com.mealplanner.app.repository.RecipeRepository;
 import com.mealplanner.app.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,15 +13,12 @@ public class RecipeController {
     @Autowired
     RecipeService recipeService;
 
-    @Autowired
-    RecipeRepository recipeRepository;
-
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void create (@RequestBody Recipe recipe) {
-        recipeRepository.save(recipe);
+        recipeService.createRecipe(recipe);
     }
 
-    @GetMapping(value = "/{idString}")
+    @GetMapping(value = "/{id}")
     public Recipe read(@PathVariable String id) {
         return recipeService.getOwnRecipe(id);
     }
