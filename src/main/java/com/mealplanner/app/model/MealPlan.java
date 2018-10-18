@@ -2,7 +2,7 @@ package com.mealplanner.app.model;
 
 public class MealPlan {
 
-    private int id;
+    private String id;
 
     private int userId;
 
@@ -18,11 +18,11 @@ public class MealPlan {
         this.userId = userId;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
