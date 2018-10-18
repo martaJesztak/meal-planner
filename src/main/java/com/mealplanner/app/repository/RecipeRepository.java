@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface RecipeRepository extends MongoRepository<Recipe, String> {
 
-    Recipe findOneById(int id);
+    Recipe findOneById(String id);
 }

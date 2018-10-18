@@ -11,11 +11,11 @@ public class RecipeService {
     @Autowired
     RecipeRepository recipeRepository;
 
-    public void createRecipe(){
-
+    public void createRecipe(Recipe recipe){
+        recipeRepository.save(recipe);
     }
 
-    public Recipe getOwnRecipe(int id){
+    public Recipe getOwnRecipe(String id){
         return recipeRepository.findOneById(id);
     }
 }
