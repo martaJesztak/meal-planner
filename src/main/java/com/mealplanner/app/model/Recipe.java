@@ -13,7 +13,9 @@ public class Recipe {
     private DietLabel[] dietlabels;
     private HealthLabel[] healthLabels;
 
-    public Recipe(String id, String title, String image, String source, String url, int yield, String[] ingredients, String instructions, DietLabel[] dietlabels, HealthLabel[] healthLabels) {
+    public Recipe(String id, String title, String image, String source, String url,
+                  int yield, String[] ingredients, String instructions, DietLabel[] dietlabels,
+                  HealthLabel[] healthLabels) {
         this.id = id;
         this.title = title;
         this.image = image;
