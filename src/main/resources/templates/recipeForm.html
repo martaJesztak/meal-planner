@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Form</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div style="padding: 50px">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" style="padding: 20px">
+                    <div class="card-body">
+                        <form action="/recipe" method="post">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" value="" >
+                            <label for="image">Image url</label>
+                            <input type="url" class="form-control" id="image" name="image" value="" >
+                            <label for="source">Source</label>
+                            <input type="text" class="form-control" id="source" name="source" value="" >
+                            <label for="url">URL</label>
+                            <input type="url" class="form-control" id="url" name="url" value="" >
+                            <label for="servings">Number of servings</label>
+                            <input type="number" class="form-control" id="servings" name="servings" value="" >
+                            <label for="ingredient_fields">Ingredients</label>
+                            <div id="ingredient_fields">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="ingredients" name="ingredients" value="" placeholder="Ingredient">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-success" type="button"  onclick="ingredientFields('ingredient_fields');"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another ingerdient</small></div>
+                            <label for="Instructions">Instructions</label>
+                            <textarea class="form-control" id="Instructions" name="Instructions" ></textarea>
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ingredientCount = 1;
+        function ingredientFields(firstIngredient) {
+            ingredientCount++;
+            var objTo = document.getElementById(firstIngredient)
+            var divtest = document.createElement("div");
+            divtest.setAttribute("class", "form-group removeclass"+ingredientCount);
+            //var rdiv = 'removeclass'+ingredientCount;
+            divtest.innerHTML = '' +
+                '<div class="form-group"> ' +
+                '<div class="input-group">'+
+                '<input type="text" class="form-control" id="ingredients" name="ingredients" value="" placeholder="Ingredient">' +
+                '<div class="input-group-btn"> ' +
+                '<button class="btn btn-danger" type="button" onclick="remove_ingredient_fields('+ ingredientCount +');">' +
+                '<span class="glyphicon glyphicon-minus" aria-hidden="true">'  +
+                '</span>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+
+            objTo.appendChild(divtest)
+        }
+        function remove_ingredient_fields(rid) {
+            $('.removeclass'+rid).remove();
+        }
+    </script>
+
+
+
+</body>
+</html>
