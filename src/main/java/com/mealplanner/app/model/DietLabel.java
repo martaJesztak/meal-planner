@@ -10,4 +10,8 @@ public enum DietLabel {
     DietLabel (String label) {
         this.label = label;
     }
+
+    public String getDisplayName() {
+        return label;
+    }
 }

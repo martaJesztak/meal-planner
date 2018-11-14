@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Recipe Form</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
     <div style="padding: 50px">
@@ -42,6 +47,14 @@
                             <div><small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another ingerdient</small></div>
                             <label for="Instructions">Instructions</label>
                             <textarea class="form-control" id="Instructions" name="Instructions" ></textarea>
+                            <label for="dietlabel">Diet label</label>
+                            <select id="dietlabel" name="dietLabels" class="form-control selectpicker" multiple data-live-search="true">
+                                <option th:each="dietlabel : ${T(com.mealplanner.app.model.DietLabel).values()}" th:value="${dietlabel}" th:text="${dietlabel.displayName}"></option>
+                            </select>
+                            <label for="healthlabel">Health label</label>
+                            <select id="healthlabel" name="healthLabels" class="form-control selectpicker" multiple data-live-search="true">
+                                <option th:each="healthlabel : ${T(com.mealplanner.app.model.HealthLabel).values()}" th:value="${healthlabel}" th:text="${healthlabel.displayName}"></option>
+                            </select>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>
                     </div>
