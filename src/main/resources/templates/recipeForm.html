@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Recipe Form</title>
@@ -22,6 +22,10 @@
                             <input type="text" class="form-control" id="source" name="source" value="" >
                             <label for="url">URL</label>
                             <input type="url" class="form-control" id="url" name="url" value="" >
+                            <label for="mealtype">Mealtype</label>
+                            <select id="mealtype" class="form-control" name="mealtype">
+                                <option th:each="mealtype : ${T(com.mealplanner.app.model.Mealtype).values()}" th:value="${mealtype}" th:text="${mealtype.displayName}"></option>
+                            </select>
                             <label for="servings">Number of servings</label>
                             <input type="number" class="form-control" id="servings" name="servings" value="" >
                             <label for="ingredient_fields">Ingredients</label>
