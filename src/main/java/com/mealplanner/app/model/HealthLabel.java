@@ -8,4 +8,8 @@ public enum HealthLabel {
     HealthLabel(String label) {
         this.label = label;
     }
+
+    public String getDisplayName() {
+        return label;
+    }
 }

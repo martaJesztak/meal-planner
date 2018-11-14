@@ -1,7 +1,5 @@
 package com.mealplanner.app.model;
 
-import java.util.Locale;
-
 public class Recipe {
 
     private String id;
@@ -12,12 +10,12 @@ public class Recipe {
     private int yield;
     private String[] ingredients;
     private String instructions;
-    private DietLabel[] dietlabels;
+    private DietLabel[] dietLabels;
     private HealthLabel[] healthLabels;
     private Mealtype mealtype;
 
     public Recipe(String id, String title, String image, String source, String url,
-                  int yield, String[] ingredients, String instructions, DietLabel[] dietlabels,
+                  int yield, String[] ingredients, String instructions, DietLabel[] dietLabels,
                   HealthLabel[] healthLabels, Mealtype mealtype) {
         this.id = id;
         this.title = title;
@@ -27,7 +25,7 @@ public class Recipe {
         this.yield = yield;
         this.ingredients = ingredients;
         this.instructions = instructions;
-        this.dietlabels = dietlabels;
+        this.dietLabels = dietLabels;
         this.healthLabels = healthLabels;
     }
 
@@ -94,12 +92,12 @@ public class Recipe {
         this.instructions = instructions;
     }
 
-    public DietLabel[] getDietlabels() {
-        return dietlabels;
+    public DietLabel[] getDietLabels() {
+        return dietLabels;
     }
 
-    public void setDietlabels(DietLabel[] dietlabels) {
-        this.dietlabels = dietlabels;
+    public void setDietLabels(DietLabel[] dietLabels) {
+        this.dietLabels = dietLabels;
     }
 
     public HealthLabel[] getHealthLabels() {
