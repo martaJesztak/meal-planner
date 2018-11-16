@@ -1,0 +1,13 @@
+Modify your application.properties file accordingly:
+
+
+#Mongo DB Atlas - remote database:
+spring.data.mongodb.uri=   /* provide url for mongoDB */
+
+#local Mongo DB:
+#spring.data.mongodb.uri=127.0.0.1:27017
+
+server.port = /* the port number you wish to run your app on localhost */
+
+user.username=user  /* this is for the in-memory user's username. Keep it simply "user" */
+user.password= /* set up your own password */
