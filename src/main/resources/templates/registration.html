@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <form></form>
+<form action="/registration" th:object="${newUser}" method="POST" enctype="utf8">
+    <div>
+        <label for="firstname">Firstname</label>
+        <input th:field="*{firstname}" id="firstname"/>
+        <p th:each="error: ${#fields.errors('firstname')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <div>
+        <label for="lastname">Lastname</label>
+        <input th:field="*{lastname}" id="lastname"/>
+        <p th:each="error : ${#fields.errors('lastname')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" th:field="*{email}" id="email"/>
+        <p th:each="error : ${#fields.errors('email')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" th:field="*{password}" id="password"/>
+        <p th:each="error : ${#fields.errors('password')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <div>
+        <label for="confirm">Confirm your password</label>
+        <input type="password" th:field="*{password}" id="confirm"/>
+    </div>
+    <button type="submit" >Register</button>
+</form>
 </body>
 </html>
