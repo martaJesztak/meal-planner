@@ -5,34 +5,34 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/registration" th:object="${newUser}" method="POST" enctype="utf8">
+<form th:action="@{/registration}" th:object="${newUser}" method="POST" enctype="utf8">
     <div>
         <label for="firstname">Firstname</label>
-        <input th:field="*{firstname}" id="firstname"/>
+        <input th:field="*{firstname}" id="firstname" name="firstname"/>
         <p th:each="error: ${#fields.errors('firstname')}"
            th:text="${error}">Validation error</p>
     </div>
     <div>
         <label for="lastname">Lastname</label>
-        <input th:field="*{lastname}" id="lastname"/>
+        <input th:field="*{lastname}" id="lastname" name="lastname"/>
         <p th:each="error : ${#fields.errors('lastname')}"
            th:text="${error}">Validation error</p>
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="email" th:field="*{email}" id="email"/>
+        <input type="email" th:field="*{email}" id="email" name="email"/>
         <p th:each="error : ${#fields.errors('email')}"
            th:text="${error}">Validation error</p>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" th:field="*{password}" id="password"/>
+        <input type="password" th:field="*{password}" id="password" name="password"/>
         <p th:each="error : ${#fields.errors('password')}"
            th:text="${error}">Validation error</p>
     </div>
     <div>
         <label for="confirm">Confirm your password</label>
-        <input type="password" th:field="*{password}" id="confirm"/>
+        <input type="password" th:field="*{password}" id="confirm" name="confirm"/>
     </div>
     <button type="submit" >Register</button>
 </form>
