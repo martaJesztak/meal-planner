@@ -4,10 +4,8 @@
     <div th:replace="header.html :: copy"></div>
 </head>
 
-<body>
+<body class="bg">
 <!-- Background -->
-<div class="bg">
-</div>
 
 <!-- Navigation -->
 <div th:replace="navbar.html :: copy"></div>
@@ -17,26 +15,29 @@
 <div class="container">
 
     <!-- Page Heading -->
-    <h2 class="my-recipes">Recipes <a class="my-recipes-link" href=""><i class="fas fa-chevron-circle-right"></i></a>
-    </h2>
 
-    <div class="row">
-        <th:block th:each="recipe : ${recipes}">
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" th:attr="src=${recipe.getImage()}" ></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#" th:text = "${recipe.getTitle()}">Recipe Title</a>
-                        </h4>
-                        <p class="card-text" th:text="${recipe.getInstructions()}">Instructions</p>
+    <div  class="card">
+        <div class="card-title">
+            <h2 class="my-recipes">Recipes <a class="my-recipes-link" href=""><i class="fas fa-chevron-circle-right"></i></a></h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <th:block th:each="recipe : ${recipes}">
+                    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top" th:attr="src=${recipe.getImage()}" ></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#" th:text = "${recipe.getTitle()}">Recipe Title</a>
+                                </h4>
+                                <p class="card-text" th:text="${recipe.getInstructions()}">Instructions</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </th:block>
             </div>
-        </th:block>
-
+        </div>
     </div>
-    <!-- /.row -->
 
     <!-- Pagination -->
     <ul class="pagination justify-content-center">
