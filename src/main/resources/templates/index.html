@@ -18,7 +18,7 @@
 
     <div  class="card">
         <div class="card-title">
-            <h2 class="my-recipes">Recipes <a class="my-recipes-link" href=""><i class="fas fa-chevron-circle-right"></i></a></h2>
+            <h4 class="my-recipes">Manage recipes <a class="my-recipes-link" href=""><i class="fas fa-chevron-circle-right"></i></a></h4>
         </div>
         <div class="card-body">
             <div class="row">
@@ -28,7 +28,7 @@
                             <a href="#"><img class="card-img-top" th:attr="src=${recipe.getImage()}" ></a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#" th:text = "${recipe.getTitle()}">Recipe Title</a>
+                                    <a th:href="@{'/recipe/' + ${recipe.getId()}}"  th:text = "${recipe.getTitle()}">Recipe Title</a>
                                 </h4>
                                 <p class="card-text" th:text="${recipe.getInstructions()}">Instructions</p>
                             </div>
