@@ -31,5 +31,10 @@ public class MainController {
         return "recipeManager";
     }
 
+    @GetMapping("/mealplan")
+    public String mealPlan(){
+        return "mealplan";
+    }
+
 
 }
