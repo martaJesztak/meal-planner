@@ -10,10 +10,10 @@
     color: black;
 }
 
-.my-recipes-link{
+.btn-link{
     color: black;
 }
 
-.my-recipes-link:hover{
+.btn-link:hover{
     color: darkgray;
 }

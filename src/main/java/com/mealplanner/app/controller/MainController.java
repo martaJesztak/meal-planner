@@ -26,6 +26,11 @@ public class MainController {
         return "recipeForm";
     }
 
+    @GetMapping("/recipemanager")
+    public String recipeManager(){
+        return "recipeManager";
+    }
+
     @GetMapping("/mealplan")
     public String mealPlan(){
         return "mealplan";
