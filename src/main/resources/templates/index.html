@@ -14,31 +14,41 @@
 <!-- Page Content -->
 <div class="container" style="margin-top:30px">
 
-    <!-- Page Heading -->
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                        My Recipes <a href="/recipemanager"><i class="fas fa-chevron-circle-right"></i></a>
+                    </button>
+                </h5>
+            </div>
 
-    <div  class="card">
-        <div class="card-title">
-            <h4 class="my-recipes">Manage recipes <a class="my-recipes-link" href=""><i class="fas fa-chevron-circle-right"></i></a></h4>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <th:block th:each="recipe : ${recipes}">
-                    <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" th:attr="src=${recipe.getImage()}" ></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a th:href="@{'/recipe/' + ${recipe.getId()}}"  th:text = "${recipe.getTitle()}">Recipe Title</a>
-                                </h4>
-                                <p class="card-text" th:text="${recipe.getInstructions()}">Instructions</p>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="row">
+                        <th:block th:each="recipe : ${recipes}">
+                            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                                <div class="card h-100">
+                                    <a href="#"><img class="card-img-top" th:attr="src=${recipe.getImage()}" ></a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a th:href="@{'/recipe/' + ${recipe.getId()}}"  th:text = "${recipe.getTitle()}">Recipe Title</a>
+                                        </h4>
+                                        <p class="card-text" th:text="${recipe.getInstructions()}">Instructions</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </th:block>
                     </div>
-                </th:block>
+                </div>
             </div>
         </div>
+
     </div>
 
+    <!-- Page Heading -->
+    
 </div>
 <!-- /.container -->
 
