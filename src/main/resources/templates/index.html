@@ -16,7 +16,7 @@
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <a class="my-recipes-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
-                        Weekly Plan<a class="my-recipes-link" href="/mealplan"><i class="fas fa-chevron-circle-right"></i></a>
+                        Weekly Plan <a class="my-recipes-link" href="/mealplan"><i class="fas fa-chevron-circle-right"></i></a>
                     </a>
                 </h5>
             </div>
@@ -30,7 +30,7 @@
                 </h5>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
                     <div class="row">
                         <th:block th:each="recipe : ${recipes}">
@@ -41,7 +41,6 @@
                                         <h4 class="card-title">
                                             <a th:href="@{'/recipe/' + ${recipe.getId()}}"  th:text = "${recipe.getTitle()}">Recipe Title</a>
                                         </h4>
-                                        <p class="card-text" th:text="${recipe.getInstructions()}">Instructions</p>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +51,7 @@
             <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
                     <a class="my-recipes-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
-                        Shopping List<a class="my-recipes-link" href="/recipemanager"><i class="fas fa-chevron-circle-right"></i></a>
+                        Shopping List <a class="my-recipes-link" href="/recipemanager"><i class="fas fa-chevron-circle-right"></i></a>
                     </a>
                 </h5>
             </div>
