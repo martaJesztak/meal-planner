@@ -16,6 +16,8 @@ public class User {
 
     public User() {    }
 
+    public User(String username, String email) {}
+
     public User(String id, String firstname, String lastname, String username, String email,
                 String password, List<Recipe> recipes, DietLabel[] dietPreferences,
                 HealthLabel[] healthLabelPreferences) {
