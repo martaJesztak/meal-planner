@@ -2,7 +2,7 @@ package com.mealplanner.app.controller;
 
 
 import com.mealplanner.app.model.User;
-import com.mealplanner.app.repository.UserRepository;
+import com.mealplanner.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RegistrationController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @GetMapping("/registration")
     public String registrationPage(Model model) {
@@ -24,7 +24,7 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String registerUser(@ModelAttribute User user) {
-        userRepository.save(user);
+        userService.save(user);
         return "login";
     }
 }
