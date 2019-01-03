@@ -1,9 +1,6 @@
 package com.mealplanner.app.config;
 
 import com.mealplanner.app.service.MongoUserDetailsService;
-//import com.mealplanner.app.service.UserDetailsImpl;
-//import com.mealplanner.app.service.UserService;
-//import com.mealplanner.app.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -13,17 +10,13 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration
-//@EnableWebSecurity
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${user.username}")
@@ -35,8 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MongoUserDetailsService mongoUserDetailsService;
 
-    @Override
-    public void configure(AuthenticationManagerBuilder authBuilder) throws Exception {
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder authBuilder) throws Exception {
 
         authBuilder
                 .inMemoryAuthentication()
@@ -64,24 +63,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
-//
-//    @Bean
-//    @Override
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user =
-//                User.withDefaultPasswordEncoder()
-//                        .username(username)
-//                        .password(password)
-//                        .roles("USER")
-//                        .build();
-//
-//        return new InMemoryUserDetailsManager(user);
-//    }
-
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-
-
 }
