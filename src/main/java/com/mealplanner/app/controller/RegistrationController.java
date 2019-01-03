@@ -25,6 +25,6 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String registerUser(@ModelAttribute User user) {
         userService.save(user);
-        return "login";
+        return "auth/login";
     }
 }
