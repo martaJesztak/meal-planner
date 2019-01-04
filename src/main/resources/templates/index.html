@@ -9,7 +9,7 @@
 <div th:replace="navbar.html :: copy"></div>
 
 
-<div class="container" style="margin-top:30px">
+<div class="container" style="margin-top:60px">
 
     <div id="accordion">
         <div  class="card">
@@ -19,6 +19,24 @@
                         Weekly Plan <a class="my-recipes-link" href="/mealplan"><i class="fas fa-chevron-circle-right"></i></a>
                     </a>
                 </h5>
+            </div>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <th:block >
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top"  ></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a >Recipe Title</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
             </div>
         </div>
         <div class="card">
