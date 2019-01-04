@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <title>Title</title>
@@ -24,11 +26,16 @@
                         <a class="nav-link" href="#"><i class="fas fa-cog"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i></a>
+                        <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post">
+                            <a class="nav-link" href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </a>
+                        </form>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+</div>
 </body>
 </html>
