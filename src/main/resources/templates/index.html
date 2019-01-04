@@ -4,76 +4,83 @@
     <div th:replace="header.html :: copy"></div>
 </head>
 
-<body>
-<!-- Background -->
-<div class="bg">
-</div>
+<body class="bg">
 
-<!-- Navigation -->
 <div th:replace="navbar.html :: copy"></div>
 
 
-<!-- Page Content -->
-<div class="container">
+<div class="container" style="margin-top:60px">
 
-    <!-- Page Heading -->
-    <h2 class="my-recipes">Recipes <a class="my-recipes-link" href=""><i class="fas fa-chevron-circle-right"></i></a>
-    </h2>
+    <div id="accordion">
+        <div  class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <a class="my-recipes-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                        Weekly Plan <a class="my-recipes-link" href="/mealplan"><i class="fas fa-chevron-circle-right"></i></a>
+                    </a>
+                </h5>
+            </div>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <th:block >
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top"  ></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a >Recipe Title</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <a class="my-recipes-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
+                        My Recipes <a class="my-recipes-link" href="/recipemanager"><i class="fas fa-chevron-circle-right"></i></a>
+                    </a>
+                </h5>
+            </div>
 
-    <div class="row">
-        <th:block th:each="recipe : ${recipes}">
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" th:attr="src=${recipe.getImage()}" ></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#" th:text = "${recipe.getTitle()}">Recipe Title</a>
-                        </h4>
-                        <p class="card-text" th:text="${recipe.getInstructions()}">Instructions</p>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="row">
+                        <th:block th:each="recipe : ${recipes}">
+                            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                                <div class="card h-100">
+                                    <a href="#"><img class="card-img-top" th:attr="src=${recipe.getImage()}" ></a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a th:href="@{'/recipe/' + ${recipe.getId()}}"  th:text = "${recipe.getTitle()}">Recipe Title</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
                     </div>
                 </div>
             </div>
-        </th:block>
-
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <a class="my-recipes-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
+                        Shopping List <a class="my-recipes-link" href="/recipemanager"><i class="fas fa-chevron-circle-right"></i></a>
+                    </a>
+                </h5>
+            </div>
+        </div>
     </div>
-    <!-- /.row -->
-
-    <!-- Pagination -->
-    <ul class="pagination justify-content-center">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-            </a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-            </a>
-        </li>
-    </ul>
 
 </div>
 <!-- /.container -->
 
 
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-    </div>
-    <!-- /.container -->
-</footer>
+<div th:replace="footer.html :: copy"></div>
 
 <!-- Bootstrap core JavaScript -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

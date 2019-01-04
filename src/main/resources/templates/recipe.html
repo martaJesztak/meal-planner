@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="header.html :: copy"></div>
+</head>
+<body class = "bg">
+<div th:replace="navbar.html :: copy"></div>
+    <div class="container" style="margin-top:30px">
+        <div class="card mx-auto" style="width:1000px">
+            <div class="card-body" >
+                <div class="row">
+                    <div class="col-sm" >
+                        <div class="row">
+                            <h1 class="col" th:text="${recipe.getTitle()}" ></h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-2" ><label><i class="fas fa-utensils"></i>  <i class="fas fa-times"></i></label></div>
+                            <div class="col-10" th:text="${recipe.getYield()}"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2" ><label>Diet:</label></div>
+                            <th:block th:each="label : ${recipe.getDietLabels()}">
+                                <h6 class="badge badge-pill label-light" th:text="${label}">label</h6>
+                            </th:block>
+                        </div>
+                        <div class="row">
+                            <div class="col-2" ><label>Health:</label></div>
+                            <th:block th:each="label : ${recipe.getHealthLabels()}">
+                                <h6 class="badge badge-pill label-light" th:text="${label}">label</h6>
+                            </th:block>
+                        </div>
+
+                    </div>
+                    <div class="col-sm">
+                        <img class="card-img-top" th:src="@{${recipe.getImage()}}" alt="Image">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm" >
+                        <h3>Ingredients:</h3>
+                        <div class="card" style="padding: 10px">
+                            <th:block th:each="ingredient : ${recipe.getIngredients()}">
+                                <p th:text="${ingredient}">ingredient</p>
+                            </th:block>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h3>Instructions</h3>
+                        <div class="card" style="padding: 10px">
+                            <div class="container" th:text="${recipe.getInstructions()}"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
