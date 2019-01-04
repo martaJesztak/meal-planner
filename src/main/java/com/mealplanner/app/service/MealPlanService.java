@@ -18,7 +18,12 @@ public class MealPlanService {
     @Autowired
     private MealPlanRepository mealPlanRepository;
 
-    @Autowired UserService userService;
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    RecipeService recipeService;
+
 
     public MealPlan getMealPlan(String id) {
         return mealPlanRepository.findOneById(id);
@@ -38,18 +43,19 @@ public class MealPlanService {
         return ResponseEntity.status(HttpStatus.ACCEPTED);
     }
 
-    public MealPlan generateRandomMealPlan(String userId, int numberOfDays) {
-        final List<Recipe> userRecipes = userService.getAllRecipes(userId);
+    public MealPlan generateRandomMealPlan(int numberOfDays) {
+        final List<Recipe> userRecipes = recipeService.getAllRecipes();
         Random randomiser = new Random();
         Recipe[] recipes = new Recipe[numberOfDays];
 
-        for (int i = 0; i<=numberOfDays; i++) {
+        for (int i = 0; i<numberOfDays; i++) {
             int listIndex = randomiser.nextInt(userRecipes.size());
             recipes[i] = userRecipes.get(listIndex);
             userRecipes.remove(listIndex);
         }
         MealPlan randomMealPlan = new MealPlan();
         randomMealPlan.setRecipes(recipes);
+        saveMealPlan(randomMealPlan);
 
         return randomMealPlan;
     }

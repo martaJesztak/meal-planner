@@ -1,10 +1,12 @@
 package com.mealplanner.app.controller;
 
+import com.mealplanner.app.model.MealPlan;
 import com.mealplanner.app.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -23,6 +25,7 @@ public class MainController {
 
     @GetMapping("/recipeform")
     public String recipeForm(){
+
         return "recipeForm";
     }
 
@@ -33,6 +36,12 @@ public class MainController {
 
     @GetMapping("/mealplan")
     public String mealPlan(){
+        return "mealplan";
+    }
+
+    @GetMapping("/mealplanlist")
+    public String listmealPlan(@ModelAttribute MealPlan mealPlan, Model model){
+        model.addAttribute("randomMealPlan", mealPlan);
         return "mealplan";
     }
 

@@ -1,26 +1,27 @@
 package com.mealplanner.app.model;
 
+import java.util.Map;
+
 public class MealPlan {
 
     private String id;
-
     private int userId;
-
-    private int nrOfDays;
-
     private DietLabel[] dietPreferences;
-
     private Recipe[] recipes;
+    private int numberOfDays;
+    private Map<Day,Recipe> mealPLan;
 
     public MealPlan() {}
 
-    public MealPlan(int userId) {
+    public MealPlan(String id, int userId, DietLabel[] dietPreferences, Recipe[] recipes, int numberOfDays, Map<Day, Recipe> mealPLan) {
+        this.id = id;
         this.userId = userId;
+        this.dietPreferences = dietPreferences;
+        this.recipes = recipes;
+        this.mealPLan = mealPLan;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
 
     public void setId(String id) {
         this.id = id;
@@ -34,14 +35,6 @@ public class MealPlan {
         this.userId = userId;
     }
 
-    public int getNrOfDays() {
-        return nrOfDays;
-    }
-
-    public void setNrOfDays(int nrOfDays) {
-        this.nrOfDays = nrOfDays;
-    }
-
     public DietLabel[] getDietPreferences() {
         return dietPreferences;
     }
@@ -52,6 +45,14 @@ public class MealPlan {
 
     public Recipe[] getRecipes() {
         return recipes;
+    }
+
+    public int getNumberOfDays() {
+        return numberOfDays;
+    }
+
+    public void setNumberOfDays(int numberOfDays) {
+        this.numberOfDays = numberOfDays;
     }
 
     public void setRecipes(Recipe[] recipes) {
